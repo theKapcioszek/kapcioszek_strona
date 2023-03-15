@@ -1,2 +1,2 @@
 # kapcioszek_strona
-Strona internetowa, którą przygotowałam w trakcie praktyk zawodowch w listopadzie 2022
+<p>Website made using html css php and sql I made during apprenticeships in November 2022</p>
