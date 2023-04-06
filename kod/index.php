@@ -25,7 +25,7 @@
 
         <?php
 
-        $link = new mysqli("localhost", "root", "");
+        $link = new mysqli("mysql_db", "root", "");
 
         if ($link->connect_error) {
             die("Connection failed: " . $link->connect_error);
@@ -80,7 +80,7 @@
 
                 $tab = array();
 
-                $link = new mysqli("localhost", "root", "");
+                $link = new mysqli("mysql_db", "root", "");
 
                 if ($link->connect_error) {
                     die("Connection failed: " . $link->connect_error);
@@ -127,7 +127,7 @@
         <div><a href="index.php"><b>Kapcioszek</b></a></div>
         <?php
 
-        $link = new mysqli("localhost", "root", "");
+        $link = new mysqli("mysql_db", "root", "");
 
         if ($link->connect_error) {
             die("Connection failed: " . $link->connect_error);

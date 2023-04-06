@@ -24,7 +24,7 @@
         </div>
         <?php
 
-        $link = new mysqli("localhost", "root", "");
+        $link = new mysqli("mysql_db", "root", "");
 
         if ($link->connect_error) {
             die("Connection failed: " . $link->connect_error);
@@ -40,7 +40,7 @@
         ?>
 
 
-        <a href="<?= $row['link']; ?>">
+        <a href="<?= $row['link']; ?>.php">
             <?= $row['name']; ?>
         </a>
 
@@ -59,7 +59,7 @@
 
         <table>
             <?php
-            $link = new mysqli("localhost", "root", "");
+            $link = new mysqli("mysql_db", "root", "");
 
             if ($link->connect_error) {
                 die("Connection failed: " . $link->connect_error);
@@ -94,7 +94,7 @@
         <div><a href="index.php"><b>Kapcioszek</b></a></div>
         <?php
 
-        $link = new mysqli("localhost", "root", "");
+        $link = new mysqli("mysql_db", "root", "");
 
         if ($link->connect_error) {
             die("Connection failed: " . $link->connect_error);
