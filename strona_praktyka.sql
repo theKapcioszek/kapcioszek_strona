@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Czas generowania: 28 Lis 2022, 12:26
--- Wersja serwera: 10.4.17-MariaDB
--- Wersja PHP: 8.0.1
+-- Host: localhost
+-- Generation Time: Apr 06, 2023 at 03:38 PM
+-- Wersja serwera: 10.11.2-MariaDB
+-- Wersja PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Baza danych: `strona_praktyka`
+-- Database: `strona_praktyka`
 --
 
 -- --------------------------------------------------------
@@ -29,14 +29,14 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `album` (
   `ID` int(11) NOT NULL,
-  `name` varchar(50) COLLATE utf8mb4_polish_ci DEFAULT NULL,
-  `cover_art` varchar(255) COLLATE utf8mb4_polish_ci DEFAULT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `cover_art` varchar(255) DEFAULT NULL,
   `year_of_release` int(4) DEFAULT NULL,
-  `link` varchar(255) COLLATE utf8mb4_polish_ci DEFAULT NULL
+  `link` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
 --
--- Zrzut danych tabeli `album`
+-- Dumping data for table `album`
 --
 
 INSERT INTO `album` (`ID`, `name`, `cover_art`, `year_of_release`, `link`) VALUES
@@ -52,12 +52,12 @@ INSERT INTO `album` (`ID`, `name`, `cover_art`, `year_of_release`, `link`) VALUE
 
 CREATE TABLE `footer` (
   `ID` int(11) NOT NULL,
-  `name` varchar(20) COLLATE utf8mb4_polish_ci DEFAULT NULL,
-  `link` varchar(255) COLLATE utf8mb4_polish_ci DEFAULT NULL
+  `name` varchar(20) DEFAULT NULL,
+  `link` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
 --
--- Zrzut danych tabeli `footer`
+-- Dumping data for table `footer`
 --
 
 INSERT INTO `footer` (`ID`, `name`, `link`) VALUES
@@ -72,12 +72,12 @@ INSERT INTO `footer` (`ID`, `name`, `link`) VALUES
 
 CREATE TABLE `menu` (
   `ID` int(11) NOT NULL,
-  `name` varchar(20) COLLATE utf8mb4_polish_ci DEFAULT NULL,
-  `link` varchar(255) COLLATE utf8mb4_polish_ci DEFAULT NULL
+  `name` varchar(20) DEFAULT NULL,
+  `link` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
 --
--- Zrzut danych tabeli `menu`
+-- Dumping data for table `menu`
 --
 
 INSERT INTO `menu` (`ID`, `name`, `link`) VALUES
@@ -93,13 +93,13 @@ INSERT INTO `menu` (`ID`, `name`, `link`) VALUES
 
 CREATE TABLE `utwor` (
   `ID` int(11) NOT NULL,
-  `name` varchar(50) COLLATE utf8mb4_polish_ci DEFAULT NULL,
+  `name` varchar(50) DEFAULT NULL,
   `album` int(11) DEFAULT NULL,
-  `link` varchar(255) COLLATE utf8mb4_polish_ci DEFAULT NULL
+  `link` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
 --
--- Zrzut danych tabeli `utwor`
+-- Dumping data for table `utwor`
 --
 
 INSERT INTO `utwor` (`ID`, `name`, `album`, `link`) VALUES
@@ -122,7 +122,10 @@ INSERT INTO `utwor` (`ID`, `name`, `album`, `link`) VALUES
 (17, 'Room number twenty', 3, 'https://www.youtube-nocookie.com/embed/yu3BBN7CEWw'),
 (18, 'Weeksome', 3, 'https://www.youtube-nocookie.com/embed/SpxK0PqEY_k'),
 (19, 'Breakfast time', 3, 'https://www.youtube-nocookie.com/embed/6Ud6WenJ4Lk'),
-(20, 'Silver\'s Alarm Clock', 3, 'https://www.youtube-nocookie.com/embed/M-FxD2rFZTw');
+(20, 'Silver\'s Alarm Clock', 3, 'https://www.youtube-nocookie.com/embed/M-FxD2rFZTw'),
+(21, 'Slay!', 3, 'https://www.youtube-nocookie.com/embed/wN-jvWSH9RI'),
+(22, 'Flu during party', 3, 'https://www.youtube-nocookie.com/embed/i4Lzk9lLB4U'),
+(23, 'Vogue Society', 3, 'https://www.youtube-nocookie.com/embed/BxLQqqstJAo');
 
 --
 -- Indeksy dla zrzutów tabel
@@ -154,39 +157,39 @@ ALTER TABLE `utwor`
   ADD KEY `fk_album` (`album`);
 
 --
--- AUTO_INCREMENT dla zrzuconych tabel
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT dla tabeli `album`
+-- AUTO_INCREMENT for table `album`
 --
 ALTER TABLE `album`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT dla tabeli `footer`
+-- AUTO_INCREMENT for table `footer`
 --
 ALTER TABLE `footer`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT dla tabeli `menu`
+-- AUTO_INCREMENT for table `menu`
 --
 ALTER TABLE `menu`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT dla tabeli `utwor`
+-- AUTO_INCREMENT for table `utwor`
 --
 ALTER TABLE `utwor`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
--- Ograniczenia dla zrzutów tabel
+-- Constraints for dumped tables
 --
 
 --
--- Ograniczenia dla tabeli `utwor`
+-- Constraints for table `utwor`
 --
 ALTER TABLE `utwor`
   ADD CONSTRAINT `fk_album` FOREIGN KEY (`album`) REFERENCES `album` (`ID`);
