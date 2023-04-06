@@ -16,3 +16,6 @@
   <li><p>voilà!</p></li>
 </ul>
 <p>open <a href="http://localhost:2137/kod">this</a> in your browser to see the page</p>
+<br>
+<br>
+<img src="https://raw.githubusercontent.com/theKapcioszek/kapcioszek_strona/master/screenshot/2023-04-06_21-29.png"/>
